@@ -11,9 +11,6 @@ resource "azurerm_container_app" "my_first_app" {
   container_app_environment_id = azurerm_container_app_environment.my_first_app.id
   resource_group_name          = azurerm_resource_group.my_first_app.name
   revision_mode                = "Single"
-  registry {
-    server               = "docker.io"    
-  }
 
   ingress {
     allow_insecure_connections = false
@@ -22,15 +19,14 @@ resource "azurerm_container_app" "my_first_app" {
     traffic_weight {
       percentage = 100
     }
-  }
+ }
 
   template {
     container {
-      name   = "${var.prefix}-ca-${var.stage}"
-      image  = "hello-world:latest"
+      name   = "examplecontainerapp"
+      image  = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
       cpu    = 0.25
       memory = "0.5Gi"
     }
-#  tags = local.default_tags
   }
 }
