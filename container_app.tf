@@ -31,6 +31,6 @@ resource "azurerm_container_app" "my_first_app" {
       cpu    = 0.25
       memory = "0.5Gi"
     }
-  tags = local.default_tags
+#  tags = local.default_tags
   }
 }
