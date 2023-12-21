@@ -21,9 +21,9 @@ jobs:
       uses: hashicorp/setup-terraform@v3
     - name: Terraform init
       run: terraform init
-    # - name: Terraform import
-    #   run: |
-    #     terraform import azurerm_resource_group.my_first_app /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/azurerm_resource_group.my_first_app.name
-    #     terraform import azurerm_log_analytics_workspace.my_first_app /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/azurerm_log_analytics_workspace.my_first_app.name        
+    - name: Terraform import
+      run: |
+        terraform import azurerm_resource_group.rg /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/azurerm_resource_group.my_first_app.name
+        terraform import azurerm_log_analytics_workspace.law /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/azurerm_log_analytics_workspace.my_first_app.name        
     - name: Terraform apply
       run: terraform apply --auto-approve
