@@ -7,29 +7,17 @@ variable "region" {
 variable "app" {
   description = "Application that we want to deploy"
   type    = string
-  default = "mynewapp"
+  default = "myapp"
 }
 
 variable "env" {
   description = "Application env"
   type    = string
-  default = "qa"
+  default = "dev"
 }
 
 variable "location" {
   description = "Location short name "
   type    = string
   default = "eu"
-}
-
-variable "prefix" {
-  description = "Prefix"
-  type    = string
-  default = "prefix"
-}
-
-variable "stage" {
-  description = "Stage"
-  type    = string
-  default = "stage"
 }

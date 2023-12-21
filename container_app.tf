@@ -1,15 +1,15 @@
-resource "azurerm_container_app_environment" "my_first_app" {
+resource "azurerm_container_app_environment" "my_cae" {
   name                      = "cae-${local.stack}"
-  location                   = azurerm_resource_group.my_first_app.location
-  resource_group_name        = azurerm_resource_group.my_first_app.name
-  log_analytics_workspace_id = azurerm_log_analytics_workspace.my_first_app.id
+  location                   = azurerm_resource_group.my_rg.location
+  resource_group_name        = azurerm_resource_group.my_rg.name
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.my_law.id
   tags = local.default_tags
 }
 
-resource "azurerm_container_app" "my_first_app" {
+resource "azurerm_container_app" "my_ca" {
   name                         = "ca-${local.stack}"
-  container_app_environment_id = azurerm_container_app_environment.my_first_app.id
-  resource_group_name          = azurerm_resource_group.my_first_app.name
+  container_app_environment_id = azurerm_container_app_environment.my_cae.id
+  resource_group_name          = azurerm_resource_group.my_rg.name
   revision_mode                = "Single"
 
   ingress {
