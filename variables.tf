@@ -21,3 +21,15 @@ variable "location" {
   type    = string
   default = "cu"
 }
+
+variable "prefix" {
+  description = "Prefix"
+  type    = string
+  default = "prefix"
+}
+
+variable "stage" {
+  description = "Stage"
+  type    = string
+  default = "stage"
+}

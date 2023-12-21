@@ -19,5 +19,5 @@ variable "env" {
 variable "location" {
   description = "Location short name "
   type    = string
-  default = "we"
+  default = "cu"
 }
