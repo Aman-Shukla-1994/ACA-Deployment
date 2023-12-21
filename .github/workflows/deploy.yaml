@@ -22,6 +22,6 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
     - name: Terraform init
-      run: terraform init
+      run: terraform init -upgrade
     - name: Terraform apply
       run: terraform apply --auto-approve
