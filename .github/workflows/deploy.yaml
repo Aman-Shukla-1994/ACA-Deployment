@@ -9,6 +9,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+    - name: Azure Login
+      uses: Azure/login@v1.5.1
+      with:
+        subscription-id: 5f1124b6-1617-48f7-b9c6-d19dcbf2ae3d      
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
     - name: Terraform init
